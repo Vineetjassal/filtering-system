@@ -122,14 +122,15 @@ export default function Home() {
 
     if (isFilterApplied) {
       setFilter((prev) => ({
-        ...prev,
-        [category]: prev[category].filter((v) => v !== value),
-      }))
-    } else {
-      setFilter((prev) => ({
   ...prev,
   [category]: (prev[category] as ("S" | "M" | "L")[]).filter((v) => v !== value),
 }));
+
+    } else {
+      setFilter((prev) => ({
+        ...prev,
+        [category]: [...prev[category], value],
+      }))
     }
 
     _debouncedSubmit()
