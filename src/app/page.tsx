@@ -127,9 +127,9 @@ export default function Home() {
       }))
     } else {
       setFilter((prev) => ({
-        ...prev,
-        [category]: [...prev[category], value],
-      }))
+  ...prev,
+  [category]: (prev[category] as ("S" | "M" | "L")[]).filter((v) => v !== value),
+}));
     }
 
     _debouncedSubmit()
