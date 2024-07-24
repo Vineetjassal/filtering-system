@@ -123,8 +123,8 @@ export default function Home() {
    if (isFilterApplied) {
       setFilter((prev) => ({
         ...prev,
-        [category]: prev[category].filter((v) => v !== value),
-      }))
+        [category]: prev[category].filter((v) => v !== value) as typeof prev[typeof category],
+      }));
     } else {
       setFilter((prev) => ({
         ...prev,
